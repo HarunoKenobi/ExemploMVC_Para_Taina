@@ -151,10 +151,24 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EnderecosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711010204267_Criacao_Inicial.cs" />
+    <Compile Include="Migrations\201711010204267_Criacao_Inicial.Designer.cs">
+      <DependentUpon>201711010204267_Criacao_Inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711010353570_algumas_atualizacoes.cs" />
+    <Compile Include="Migrations\201711010353570_algumas_atualizacoes.Designer.cs">
+      <DependentUpon>201711010353570_algumas_atualizacoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Data\DataContext.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -191,13 +205,16 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Usuarios\Detalhes.cshtml" />
+    <Content Include="Views\Usuarios\Novo.cshtml" />
+    <Content Include="Views\Usuarios\Editar.cshtml" />
+    <Content Include="Views\Usuarios\Deletar.cshtml" />
+    <Content Include="Views\Enderecos\Novo.cshtml" />
+    <Content Include="Views\Enderecos\Deletar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -211,6 +228,14 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711010204267_Criacao_Inicial.resx">
+      <DependentUpon>201711010204267_Criacao_Inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711010353570_algumas_atualizacoes.resx">
+      <DependentUpon>201711010353570_algumas_atualizacoes.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

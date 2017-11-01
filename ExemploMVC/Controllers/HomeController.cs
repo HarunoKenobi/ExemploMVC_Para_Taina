@@ -1,30 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using ExemploMVC.Models.Data;
+using System.Data.Entity;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace ExemploMVC.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly DataContext db;
+
+        public HomeController()
         {
-            return View();
+            this.db = new DataContext();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public async Task<ActionResult> Index()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(await db.Usuarios.ToListAsync());
         }
     }
 }

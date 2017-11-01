@@ -1,0 +1,60 @@
+﻿@model ExemploMVC.Models.Usuario
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Detalhes</h4>
+    <hr />
+
+    <p>
+        @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+        @Html.ActionLink("Ir para a Lista", "Index", "Home")
+    </p>
+
+    <table class="table-responsive">
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(m => m.Id)</td>
+                <td>@Html.DisplayNameFor(m => m.Nome)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => m.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => m.Nome)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+    @foreach (var endereco in Model.Enderecos)
+    {
+        <dl>
+            <dt>
+                Endereco id: @endereco.Id
+            </dt>
+
+            <dt>Rua:</dt>
+            <dd>@endereco.Rua</dd>
+
+            <dt>Numero:</dt>
+            <dd>@endereco.Numero</dd>
+
+            <dt>Bairro:</dt>
+            <dd>@endereco.Bairro</dd>
+
+            <dt>@Html.ActionLink("Remover", "Deletar", "Enderecos", new { id = endereco.Id, u = Model.Id }, new { })</dt>
+        </dl>
+        <hr />
+    }
+
+    @Html.ActionLink("Adicionar Endereço", "Novo", "Enderecos", new { u = Model.Id }, new { })
+</div>
+
